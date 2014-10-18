@@ -8,12 +8,46 @@
 
 #include "DepositoNormal.h"
 
-DepositoNormal::DepositoNormal() {
+
+DepositoNormal::DepositoNormal():Deposito(){
+	
 }
 
-DepositoNormal::DepositoNormal(const DepositoNormal& orig) {
+DepositoNormal::DepositoNormal(int chave, int npaletes, Palete &p):Deposito(chave,npaletes){
+	pal = &p;
+	
 }
 
-DepositoNormal::~DepositoNormal() {
+DepositoNormal::DepositoNormal(const DepositoNormal &d):Deposito(d){
+	pal=d.pal;
+	
 }
+
+DepositoNormal::~DepositoNormal(){
+}
+
+Palete& DepositoNormal::getPalete() {
+	return *pal;
+}
+
+void DepositoNormal::listar()const{
+	cout << "Chave do Depósito: "<<getChave()<<"\n Número Paletes: "<<getPaletes()<<endl;
+}
+
+Deposito* DepositoNormal:: clone() const
+{
+ return new DepositoNormal(*this);
+}
+
+ void DepositoNormal ::escrever (ostream & o)const
+ {
+		Deposito::escrever(o);
+		o << "Palete: " << pal->getChave() << endl;
+ }
+
+ ostream & operator << (ostream& o, const DepositoNormal &d){
+	d.escrever(o);
+	return o;
+ }
+
 

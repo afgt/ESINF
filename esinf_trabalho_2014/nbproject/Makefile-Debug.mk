@@ -35,9 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Armazem.o \
 	${OBJECTDIR}/Deposito.o \
 	${OBJECTDIR}/DepositoFresco.o \
 	${OBJECTDIR}/DepositoNormal.o \
+	${OBJECTDIR}/Palete.o \
 	${OBJECTDIR}/main.o
 
 
@@ -65,6 +67,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/esinf_trabalho_2014.exe: ${OBJECTFILE
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/esinf_trabalho_2014 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Armazem.o: Armazem.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Armazem.o Armazem.cpp
+
 ${OBJECTDIR}/Deposito.o: Deposito.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -79,6 +86,11 @@ ${OBJECTDIR}/DepositoNormal.o: DepositoNormal.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DepositoNormal.o DepositoNormal.cpp
+
+${OBJECTDIR}/Palete.o: Palete.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Palete.o Palete.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
